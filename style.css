@@ -15,6 +15,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 10;
+  background-color: white;
 }
 
 nav img {
@@ -32,6 +33,10 @@ nav img {
 .dashboard-container {
   max-width: 1000px;
   margin: auto;
+}
+
+.title-dashboard {
+  margin-top: 20px;
 }
 
 /* -------- Greeting Section -------- */
