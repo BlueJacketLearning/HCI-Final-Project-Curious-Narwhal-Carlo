@@ -291,6 +291,33 @@ form {
   color: #03045e;
 }
 
+#form-submit-button:disabled {
+  background-color: white;
+  color: #03045e;
+}
+
+#toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #03045e;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+  z-index: 1000;
+}
+#toast.show {
+  opacity: 1;
+  visibility: visible;
+}
+
 @media (min-width: 576px) {
   .double-form-group {
     flex-direction: row;
