@@ -11,116 +11,119 @@
       <img src="./assets/curious-narwhal-logo.png" alt="curious-narwhal-logo" />
       <img src="./assets/profile-illustration.png" alt="profile-illustration" />
     </nav>
-    <div id="form-parent-container">
-      <div id="form-left-side-container">
-        <a id="back-button-parent" href="./">
-          <img src="./assets/back-button.svg" alt="back-button" />
-          <div>Back</div>
-        </a>
-        <div id="form-heading">
-          <div id="form-title">Add a Reminder</div>
-          <div>
-            Easily track your subscriptions and never miss a billing date. Add
-            your subscription details below to get timely reminders.
-          </div>
-        </div>
-
-        <form action="">
-          <div class="form-group">
-            <label for="subscription-name">Subscription Name</label>
-            <input
-              type="text"
-              name="subscription-name"
-              id="subscription-name"
-              placeholder="e.g., John Doe"
-              required
-            />
+    <div id="form-centering-parent-container">
+      <div id="form-parent-container">
+        <div id="form-left-side-container">
+          <a id="back-button-parent" href="./">
+            <img src="./assets/back-button.svg" alt="back-button" />
+            <div>Back</div>
+          </a>
+          <div id="form-heading">
+            <div id="form-title">Add a Reminder</div>
+            <div>
+              Easily track your subscriptions and never miss a billing date. Add
+              your subscription details below to get timely reminders.
+            </div>
           </div>
 
-          <div class="form-group">
-            <label for="price">Price</label>
-            <input
-              type="number"
-              name="price"
-              id="price"
-              placeholder="e.g., 250000"
-              required
-            />
-          </div>
-
-          <div class="form-group">
-            <p>Does this subscription has an end date?</p>
-            <label>
+          <form action="">
+            <div class="form-group">
+              <label for="subscription-name">Subscription Name</label>
               <input
-                type="radio"
-                name="subscription-type"
-                value="yes"
-                checked
+                type="text"
+                name="subscription-name"
+                id="subscription-name"
+                placeholder="e.g., John Doe"
+                required
               />
-              Yes
-            </label>
-            <label>
-              <input type="radio" name="subscription-type" value="no" />
-              No
-            </label>
+            </div>
+
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input
+                type="number"
+                name="price"
+                id="price"
+                placeholder="e.g., 250000"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <p>Does this subscription has an end date?</p>
+              <label>
+                <input
+                  type="radio"
+                  name="subscription-type"
+                  value="yes"
+                  checked
+                />
+                Yes
+              </label>
+              <label>
+                <input type="radio" name="subscription-type" value="no" />
+                No
+              </label>
+            </div>
+
+            <div
+              id="subscription-with-end-fields"
+              class="collapsible-form-groups"
+            >
+              <div class="form-group">
+                <label for="end-date">End Date</label>
+                <input type="date" name="end-date" id="end-date" />
+              </div>
+              <div class="form-group">
+                <label for="remind-me-before">Remind me Before</label>
+                <select name="remind-me-before" id="remind-me-before">
+                  <option value="">select reminder timing</option>
+                  <option value="1-day-before">1 day before</option>
+                  <option value="3-days-before">3 days before</option>
+                  <option value="y-days-before">7 days before</option>
+                </select>
+              </div>
+            </div>
+
+            <div
+              id="subscription-without-end-fields"
+              class="collapsible-form-groups"
+            >
+              <div class="form-group">
+                <label for="start-date">Start Date</label>
+                <input type="date" name="start-date" id="start-date" />
+              </div>
+
+              <div class="form-group">
+                <label for="frequency">Frequency</label>
+                <select name="frequency" id="frequency">
+                  <option value="">select a valid frequency</option>
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+              </div>
+            </div>
+
+            <button id="form-submit-button" type="submit">Save Changes</button>
+          </form>
+        </div>
+        <div id="form-right-side-container">
+          <img
+            src="./assets/add-reminder-graphic.png"
+            alt="add-reminder-graphic"
+          />
+          <div>
+            <p>
+              “Beware of little expenses; a small leak will sink a great ship.”
+            </p>
+            <p>– Benjamin Franklin</p>
           </div>
-
-          <div
-            id="subscription-with-end-fields"
-            class="collapsible-form-groups"
-          >
-            <div class="form-group">
-              <label for="end-date">End Date</label>
-              <input type="date" name="end-date" id="end-date" />
-            </div>
-            <div class="form-group">
-              <label for="remind-me-before">Remind me Before</label>
-              <select name="remind-me-before" id="remind-me-before">
-                <option value="">select reminder timing</option>
-                <option value="1-day-before">1 day before</option>
-                <option value="3-days-before">3 days before</option>
-                <option value="y-days-before">7 days before</option>
-              </select>
-            </div>
-          </div>
-
-          <div
-            id="subscription-without-end-fields"
-            class="collapsible-form-groups"
-          >
-            <div class="form-group">
-              <label for="start-date">Start Date</label>
-              <input type="date" name="start-date" id="start-date" />
-            </div>
-
-            <div class="form-group">
-              <label for="frequency">Frequency</label>
-              <select name="frequency" id="frequency">
-                <option value="">select a valid frequency</option>
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-                <option value="yearly">Yearly</option>
-              </select>
-            </div>
-          </div>
-
-          <button id="form-submit-button" type="submit">Save Changes</button>
-        </form>
-      </div>
-      <div id="form-right-side-container">
-        <img
-          src="./assets/add-reminder-graphic.png"
-          alt="add-reminder-graphic"
-        />
-        <div>
-          <p>
-            “Beware of little expenses; a small leak will sink a great ship.”
-          </p>
-          <p>– Benjamin Franklin</p>
         </div>
       </div>
     </div>
+
     <div id="toast"></div>
   </body>
   <script src="./main.js"></script>
