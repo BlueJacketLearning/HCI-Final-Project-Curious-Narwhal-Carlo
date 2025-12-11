@@ -23,60 +23,25 @@ nav img {
 }
 
 /* index.html */
-/* -------- Global -------- */
 
-.bodydash {
-  background: #f4f7fb;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.dashboard-container {
-  max-width: 1000px;
-  margin: auto;
-}
-
-.title-dashboard {
-  margin-top: 20px;
-}
 
 /* -------- Greeting Section -------- */
-.greeting-section {
+.dashboard-title {
   text-align: center;
 }
 
 /* Center the + button (move it below filters or keep it centered alone) */
 /* 3-column layout */
-.top-bar-section {
+.top-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 25px;
 }
 
-/* Left: search + filter stacked */
-.top-left {
-  flex: 1;
-}
 
-.filters-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 250px;
-}
 
-/* Center: + button centered horizontally */
-.top-center {
-  flex: 1;
-  display: flex;
-  justify-content: center; /* centers horizontally */
-  align-items: center;
-}
 
-/* Right: empty */
-.top-right {
-  flex: 1;
-}
 
 /* Square button */
 .add-button {
