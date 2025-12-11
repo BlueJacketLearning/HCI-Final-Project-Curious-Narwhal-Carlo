@@ -27,7 +27,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
   // TODO: validation and saving logic
 
   showToast(
-    "Reminder added successfully! <a href='./' style='color: white; text-decoration: underline'>Go to Homepage</a>"
+    "Reminder added successfully! <a href='./' style='color: #03045e; text-decoration: underline; font-weight: 200'>Go to Homepage</a>"
   );
 
   setTimeout(() => {
