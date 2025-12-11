@@ -18,8 +18,13 @@ nav {
   background-color: white;
 }
 
-nav img {
-  width: 35px;
+#nav-logo {
+  width: auto;
+  height: 35px;
+}
+
+#nav-profile {
+  height: 35px;
 }
 
 /* index.html */
@@ -169,23 +174,40 @@ nav img {
 
 /* form.html */
 
-#form-parent-container {
+#form-centering-parent-container {
+  min-height: calc(100vh - 45px);
   display: flex;
+  align-items: center;
   justify-content: center;
+  flex-direction: column;
+  background-color: #03045e;
 }
 
-#form-container {
+#form-parent-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
   width: 100%;
   max-width: 1200px;
   min-width: 250px;
-  margin: 20px 16px;
+  padding: 32px;
+  margin: auto 20px;
+  background-color: white;
+}
+
+#form-left-side-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
 }
 
 #back-button-parent {
   display: flex;
   gap: 5px;
   align-items: center;
-  margin-bottom: 5px;
   text-decoration: none;
   color: #03045e;
 }
@@ -194,11 +216,17 @@ nav img {
   width: 14px;
 }
 
+#form-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 #form-title {
   text-align: center;
   font-size: 30px;
-  font-weight: 500;
-  margin-bottom: 8px;
+  font-weight: 600;
+  color: #03045e;
 }
 
 form {
@@ -229,15 +257,10 @@ form {
   appearance: none;
 }
 
-.double-form-group {
+.collapsible-form-groups {
   display: flex;
   flex-direction: column;
   gap: 15px;
-}
-
-.double-form-group .form-group {
-  flex: 1;
-  min-width: 0;
 }
 
 #form-submit-button {
@@ -249,16 +272,85 @@ form {
   font-size: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
-#form-submit-button:hover {
+#form-submit-button:hover:not(:disabled) {
+  background-color: #02033d;
+  border-color: #02033d;
+}
+
+#form-submit-button:disabled {
+  background-color: #8a8ab5;
+  border-color: #8a8ab5;
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+#form-right-side-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+#form-right-side-container img {
+  display: none;
+}
+
+#form-right-side-container div {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+  justify-content: center;
+}
+
+#form-right-side-container div p {
+  font-style: italic;
+  color: #9ca3af;
+}
+
+#toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: white;
   color: #03045e;
+  font-weight: 500;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+  z-index: 1000;
+}
+
+#toast.show {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (min-width: 576px) {
-  .double-form-group {
+  #form-right-side-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+  }
+
+  #form-parent-container {
     flex-direction: row;
-    gap: 10px;
+  }
+
+  #form-right-side-container img {
+    display: block;
+    width: 100%;
   }
 }
