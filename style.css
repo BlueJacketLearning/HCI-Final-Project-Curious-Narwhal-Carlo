@@ -260,7 +260,8 @@ nav {
 #form-title {
   text-align: center;
   font-size: 30px;
-  font-weight: 500;
+  font-weight: 600;
+  color: #03045e;
 }
 
 form {
