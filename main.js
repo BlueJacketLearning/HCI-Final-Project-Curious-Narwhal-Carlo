@@ -1,8 +1,41 @@
 /* index.html */
+const container = document.getElementById("subscription-list");
+
+if (container) {
+  const list = JSON.parse(localStorage.getItem("subscriptions")) || [];
+
+  container.innerHTML = list
+    .map(
+      (item) => `
+    <tr class="table-1">
+            <td>${item.name}</td>
+            <td>6/7/2023</td>
+            <td>6/7/2024</td>
+            <td>$10</td>
+            <td>Yearly</td>
+            <td>
+              <button class="edit-button" onclick="editSubscription(${item.id})">Edit ✎</button>
+              <button class="delete-button">Delete ✖</button>
+            </td>
+          </tr>
+  `
+    )
+    .join("");
+}
+
+function editSubscription(id) {
+  window.location.href = `form.html?id=${id}`;
+}
 
 /* sign-up.html */
 
 /* form.html */
+
+// link logic
+const params = new URLSearchParams(window.location.search);
+const editId = params.get("id");
+const isEditMode = editId !== null;
+
 function showToast(message, duration = 3000) {
   const toast = document.getElementById("toast");
   toast.innerHTML = message;
@@ -57,10 +90,46 @@ document.querySelector("form").addEventListener("submit", (e) => {
   submitBtn.disabled = true;
   submitBtn.textContent = "Changes Saved";
 
-  // TODO: validation and saving logic
+  // Add info to storage
+  const subscription = {
+    id: isEditMode ? Number(editId) : Date.now(),
+    name: document.getElementById("subscription-name").value,
+    price: document.getElementById("price").value,
+    hasEndDate: selected === "yes",
+    endDate: selected === "yes" ? endDate.value : null,
+    startDate: selected === "no" ? startDate.value : null,
+    frequency: selected === "no" ? frequency.value : null,
+    remindBefore: selected === "yes" ? remindMeBefore.value : null,
+  };
+
+  let list = JSON.parse(localStorage.getItem("subscriptions")) || [];
+
+  // check if editting or adding
+  if (editId) {
+    const index = list.findIndex(
+      (subscription) => subscription.id === Number(editId)
+    );
+
+    list[index] = {
+      ...list[index],
+      name: subscription.name,
+      price: subscription.price,
+      hasEndDate: subscription.hasEndDate,
+      endDate: subscription.endDate,
+      startDate: subscription.startDate,
+      frequency: subscription.frequency,
+      remindBefore: subscription.remindBefore,
+    };
+  } else {
+    list.push(subscription);
+  }
+
+  localStorage.setItem("subscriptions", JSON.stringify(list));
 
   showToast(
-    "Reminder added successfully! <a href='./' style='color: #03045e; text-decoration: underline; font-weight: 200'>Go to Homepage</a>"
+    isEditMode
+      ? "Reminder added successfully! <a href='./' style='color: #03045e; text-decoration: underline; font-weight: 200'>Go to Homepage</a>"
+      : "Reminder changed successfully! <a href='./' style='color: #03045e; text-decoration: underline; font-weight: 200'>Go to Homepage</a>"
   );
 
   setTimeout(() => {
@@ -99,6 +168,37 @@ function toggleFields() {
       .querySelectorAll("#subscription-with-end-fields .error-message")
       .forEach((el) => el.classList.add("hide-error-message"));
   }
+}
+
+// edit form logic
+if (editId) {
+  const list = JSON.parse(localStorage.getItem("subscriptions")) || [];
+  const subscription = list.find((s) => s.id === Number(editId));
+
+  if (!subscription) {
+    alert("Subscription not found");
+    window.location.href = "./";
+  }
+
+  document.getElementById("subscription-name").value = subscription.name;
+  document.getElementById("price").value = subscription.price;
+
+  if (subscription.hasEndDate) {
+    document.querySelector('input[value="yes"]').checked = true;
+    toggleFields();
+
+    endDate.value = subscription.endDate;
+    remindMeBefore.value = subscription.remindBefore;
+  } else {
+    document.querySelector('input[value="no"]').checked = true;
+    toggleFields();
+
+    startDate.value = subscription.startDate;
+    frequency.value = subscription.frequency;
+  }
+
+  document.getElementById("form-title").textContent = "Edit Subscription";
+  document.getElementById("form-submit-button").textContent = "Save Changes";
 }
 
 radios.forEach((radio) => {
