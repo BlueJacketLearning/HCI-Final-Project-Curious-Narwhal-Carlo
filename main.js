@@ -1,3 +1,17 @@
+// Navbar
+const profile = document.getElementById("nav-profile");
+const dropdown = document.getElementById("profileDropdown");
+
+profile.addEventListener("click", (e) => {
+  e.stopPropagation();
+  dropdown.style.display =
+    dropdown.style.display === "block" ? "none" : "block";
+});
+
+document.addEventListener("click", () => {
+  dropdown.style.display = "none";
+});
+
 /* index.html */
 const container = document.getElementById("subscription-list");
 
