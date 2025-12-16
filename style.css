@@ -137,8 +137,9 @@ nav {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
-#dashboard-add :hover {
+#dashboard-add:hover {
   background-color: #050799;
+  border: 3px solid #03045e;
 }
 
 table {
@@ -174,6 +175,11 @@ td {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
+.edit-button:hover{
+    background-color: #ff7b23;
+    border: 3px solid #bc4b00;
+}
+
 .delete-button {
   background-color: #ff0404;
   color: white;
@@ -184,6 +190,11 @@ td {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.delete-button:hover{
+    background-color: #ff2323;
+    border: 3px solid #bc0000;
 }
 /* signup.html */
 
