@@ -69,7 +69,7 @@ nav {
   background-color: #f2f2f2;
 }
 
-/* index.html */
+/* dashboard.html */
 .dashboard-backround {
   min-height: calc(100vh - 45px);
   display: flex;
@@ -199,6 +199,32 @@ td {
 .delete-button:hover{
     background-color: #ff2323;
     border: 3px solid #bc0000;
+}
+
+@media (max-width: 768px) {
+  .dashboard-title {
+  font-size: 20px;
+}
+  .dashboard-buttons {
+    flex-direction: column;
+  }
+    #dashboard-add {
+    font-size: 16px;
+    padding: 10px;
+    align-items: center;
+    width: 100%
+  }
+  table {
+    display: block;
+    overflow-x: auto;
+    font-size: 14px;
+  }
+  .edit-button {
+    font-size: 13px;
+}
+  .delete-button {
+    font-size: 13px;
+}
 }
 /* signup.html */
 
